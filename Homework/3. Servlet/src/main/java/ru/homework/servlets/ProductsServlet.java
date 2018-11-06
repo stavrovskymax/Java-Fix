@@ -17,12 +17,35 @@ public class ProductsServlet extends HttpServlet {
         id.add("2");
         id.add("3");
 
+        final ArrayList<String> product = new ArrayList<String>();
+        product.add("Samsung");
+        product.add("Apple");
+        product.add("HP");
+
+        final ArrayList<String> cost = new ArrayList<String>();
+        cost.add("200");
+        cost.add("300");
+        cost.add("400");
+
         final PrintWriter printWriter = response.getWriter();
+        printWriter.print("<table>\n" +
+                "  <colgroup>\n" +
+                "    <col style=\"background:Khaki\">\n" +
+                "    <col style=\"background:Khaki\">\n" +
+                "    <col style=\"background:Khaki\">\n" +
+                "  </colgroup>\n" +
+                "  <tr>\n" +
+                "    <th>id</th>\n" +
+                "    <th>Product</th>\n" +
+                "    <th>Cost, rub</th>\n" +
+                "  </tr>\n");
+
         for (int i = 0; i < id.size(); i++) {
-            printWriter.println("-");
-            printWriter.println(id.get(i));
-            if (i == id.size()-1)
-                printWriter.println("-");
+            printWriter.print("  <tr>\n" +
+                    "    <td>" + id.get(i) + "</td>\n" +
+                    "    <td>" + product.get(i) + "</td>\n" +
+                    "    <td>" + cost.get(i) + "</td>\n" +
+                    "  </tr>\n");
         }
     }
 }
