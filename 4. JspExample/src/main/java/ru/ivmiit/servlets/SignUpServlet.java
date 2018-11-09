@@ -4,6 +4,7 @@ import ru.ivmiit.models.User;
 import ru.ivmiit.repositories.IUsersRepository;
 import ru.ivmiit.repositories.UsersRepositoryInMemoryImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,5 +27,8 @@ public class SignUpServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
                         throws ServletException, IOException {
         List<User> users = iUsersRepository.findAll();
+        request.setAttribute("usersFromServer", users);
+        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/jsp/signUp.jsp");
+        dispatcher.forward(request, response);  // перенаправление запроса
     }
 }
