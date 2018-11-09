@@ -11,9 +11,9 @@ public class UsersRepositoryInMemoryImpl implements IUsersRepository {
 
     public UsersRepositoryInMemoryImpl() {
         this.users = new ArrayList<>();
-        User user = new User("Max", "qwerty", LocalDate.parse("10.05.1996"));
-        User user1 = new User("Max1", "qwerty", LocalDate.parse("10.05.1996"));
-        User user2 = new User("Max2", "qwerty", LocalDate.parse("10.05.1996"));
+        User user = new User("Max", "qwerty", LocalDate.parse("1996-05-10"));
+        User user1 = new User("Max1", "qwerty", LocalDate.parse("1996-05-10"));
+        User user2 = new User("Max2", "qwerty", LocalDate.parse("1996-05-10"));
 
         users.add(user);
         users.add(user1);
