@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.List;
 
 @WebServlet("/signup")
@@ -30,5 +31,17 @@ public class SignUpServlet extends HttpServlet {
         request.setAttribute("usersFromServer", users);
         RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/jsp/signUp.jsp");
         dispatcher.forward(request, response);  // перенаправление запроса
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+                        throws ServletException, IOException {
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+        LocalDate birthDay = LocalDate.parse(request.getParameter("birthday"));
+
+        User user = new User(name, password, birthDay);
+        iUsersRepository.save(user);
+        doGet(request, response);
     }
 }
