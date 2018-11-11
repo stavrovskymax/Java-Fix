@@ -20,7 +20,13 @@ public class UsersRepositoryInMemoryImpl implements IUsersRepository {
         users.add(user2);
     }
 
+    @Override
     public List<User> findAll() {
         return this.users;
+    }
+
+    @Override
+    public void save(User user) {
+        users.add(user);
     }
 }
