@@ -1,14 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Maxim
-  Date: 12.11.2018
-  Time: 11:46
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Home</title>
 </head>
 <body>
 <span style="color:${cookie.color.value}">Hello</span>
