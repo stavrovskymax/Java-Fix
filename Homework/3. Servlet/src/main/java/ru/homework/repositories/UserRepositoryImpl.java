@@ -15,4 +15,13 @@ public class UserRepositoryImpl implements IUserRepository {
     public void save(User user) {
         FakeStorage.storage().users().add(user);
     }
+
+    @Override
+    public boolean exist(String name, String password) {
+        for (User user : FakeStorage.storage().users()) {
+            if (name.equals(user.getName()) & password.equals(user.getPassword()))
+                return true;
+        }
+        return false;
+    }
 }
