@@ -1,8 +1,8 @@
 package ru.ivmiit.dao;
 
+import ru.ivmiit.models.Car;
 import ru.ivmiit.models.User;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +12,12 @@ import java.util.List;
 
 public class UsersDaoImpl implements UsersDao {
     private Connection connection;
-    private final String SQL_SELECT_ALL_USERS = "SELECT * FROM hw_user";
+
+    private final String SQL_SELECT_ALL_USER = "SELECT * FROM hw_user";
+
+    //language=SQL
+    private final String SQL_SELECT_ALL_USER_WITH_CAR = "SELECT hw_user.*, hw_car.id as car_id, hw_car.model " +
+            "FROM hw_user LEFT JOIN hw_car ON hw_user.id = hw_car.owner_id";
 
     public UsersDaoImpl(Connection connection) {
         this.connection = connection;
@@ -42,13 +47,17 @@ public class UsersDaoImpl implements UsersDao {
         try {
             List<User> users = new ArrayList<User>();
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL_USERS);
+            ResultSet resultSet = statement.executeQuery(SQL_SELECT_ALL_USER_WITH_CAR);
             while (resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
+                Integer car_id = resultSet.getInt("car_id");
+                String  model = resultSet.getString("model");
 
-                User user = new User(id, firstName, lastName);
+                User user = new User(id, firstName, lastName, new ArrayList<Car>());
+                Car car = new Car(car_id, user, model);
+                user.getCars().add(car);
                 users.add(user);
             }
             return users;
