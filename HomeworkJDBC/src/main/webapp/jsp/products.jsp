@@ -28,12 +28,16 @@
         <tr>
             <th>First name</th>
             <th>Last name</th>
+            <th>Model car</th>
         </tr>
         <c:forEach items="${usersFromServer}" var="user">
-            <tr>
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-            </tr>
+            <c:forEach items="${user.cars}" var="car">
+                <tr>
+                    <td>${user.firstName}</td>
+                    <td>${user.lastName}</td>
+                    <td>${car.model}</td>
+                </tr>
+            </c:forEach>
         </c:forEach>
     </table>
 </div>
