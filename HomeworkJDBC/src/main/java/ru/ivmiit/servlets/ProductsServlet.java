@@ -2,6 +2,7 @@ package ru.ivmiit.servlets;
 
 import ru.ivmiit.dao.UsersDao;
 import ru.ivmiit.dao.UsersDaoImpl;
+import ru.ivmiit.models.Car;
 import ru.ivmiit.models.User;
 
 import javax.servlet.ServletException;
@@ -52,5 +53,17 @@ public class ProductsServlet extends HttpServlet {
         List<User> users = usersDao.findAll();
         req.setAttribute("usersFromServer", users);
         req.getServletContext().getRequestDispatcher("/jsp/products.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+        String model = req.getParameter("model");
+        User user = new User(firstName, lastName, new ArrayList<Car>());
+        Car car = new Car(user, model);
+        user.getCars().add(car);
+        usersDao.save(user);
+        doGet(req, resp);
     }
 }
