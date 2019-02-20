@@ -17,6 +17,9 @@
         <label for="lastName">Last name
             <input class="input-field" type="text" id="lastName" name="lastName">
         </label>
+        <label for ="model">Model car
+            <input class="input-field" type="text" id="model" name="model">
+        </label>
         <input type="submit" value="Add user">
     </form>
 </div>
