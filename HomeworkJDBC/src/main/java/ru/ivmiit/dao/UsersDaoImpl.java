@@ -23,12 +23,35 @@ public class UsersDaoImpl implements UsersDao {
     //language=SQL
     private final String SQL_INSERT_CAR = "INSERT INTO hw_car (owner_id, model) VALUES (?, ?)";
 
+    //language=SQL
+    private final String SQL_SELECT_USER_BY_LOGIN_ADN_PASSWORD = "SELECT * FROM hw_user WHERE login = ? AND password = ?";
+
     public UsersDaoImpl(Connection connection) {
         this.connection = connection;
     }
 
     public List<User> findAllByFirstName(String fistName) {
         return null;
+    }
+
+    public boolean exist(String login, String password) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_BY_LOGIN_ADN_PASSWORD);
+            statement.setString(1, login);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                if (resultSet.getRow() == 1) {
+                    String userLogin = resultSet.getString("login");
+                    String userPassword = resultSet.getString("password");
+                    if (userLogin.equals(login) && userPassword.equals(password))
+                        return true;
+                }
+            }
+            return false;
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     public User find(int id) {
