@@ -7,6 +7,8 @@ public class User {
     private String firstName;
     private String lastName;
     private List<Car> cars;
+    private String login;
+    private String password;
 
     public User(String firstName, String lastName, List<Car> cars) {
         this.firstName = firstName;
@@ -54,5 +56,21 @@ public class User {
 
     public void setCars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
