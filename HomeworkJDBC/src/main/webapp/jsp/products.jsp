@@ -50,5 +50,8 @@
         </c:forEach>
     </table>
 </div>
+<div class="form-style-2">
+    <input type="submit" value="Logout" onclick="location.href='${pageContext.request.contextPath}/logout'">
+</div>
 </body>
 </html>
