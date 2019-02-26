@@ -45,7 +45,7 @@ public class ProductsServlet extends HttpServlet {
             throw new IllegalStateException(e);
         }
 
-       this.usersDao = new UsersDaoImpl(connection);
+        this.usersDao = new UsersDaoImpl(connection);
     }
 
     @Override
@@ -60,10 +60,14 @@ public class ProductsServlet extends HttpServlet {
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
         String model = req.getParameter("model");
-        User user = new User(firstName, lastName, new ArrayList<Car>());
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        User user = new User(firstName, lastName, new ArrayList<Car>(), login, password);
         Car car = new Car(user, model);
         user.getCars().add(car);
         usersDao.save(user);
         doGet(req, resp);
     }
+
+
 }
