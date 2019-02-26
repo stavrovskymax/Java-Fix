@@ -20,6 +20,12 @@
         <label for ="model">Model car
             <input class="input-field" type="text" id="model" name="model">
         </label>
+        <label for="login">Login
+            <input class="input-field" type="text" id="login" name="login">
+        </label>
+        <label for="password">Password
+            <input class="input-field" type="password" id="password" name="password">
+        </label>
         <input type="submit" value="Add user">
     </form>
 </div>
