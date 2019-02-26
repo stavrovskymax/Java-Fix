@@ -10,10 +10,12 @@ public class User {
     private String login;
     private String password;
 
-    public User(String firstName, String lastName, List<Car> cars) {
+    public User(String firstName, String lastName, List<Car> cars, String login, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.cars = cars;
+        this.login = login;
+        this.password = password;
     }
 
     public User(int id, String firstName, String lastName) {
