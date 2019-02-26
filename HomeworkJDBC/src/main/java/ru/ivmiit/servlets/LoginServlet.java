@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
         if(usersDao.exist(login, password)) {
             HttpSession session = req.getSession();
             session.setAttribute("login", login);
-            req.getServletContext().getRequestDispatcher("/products").forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/products");
         } else
             resp.sendRedirect(req.getContextPath() + "/login");
     }
