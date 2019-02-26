@@ -22,7 +22,7 @@ public class Filter implements javax.servlet.Filter {
 
         HttpSession session = req.getSession(false);
 
-        if (session == null || session.getAttribute("user") == null) {
+        if (session == null || session.getAttribute("login") == null) {
             resp.sendRedirect(req.getContextPath() + "/login");
         } else
             chain.doFilter(req, resp);
