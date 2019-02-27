@@ -57,7 +57,9 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("login", login);
             resp.sendRedirect(req.getContextPath() + "/products");
-        } else
-            resp.sendRedirect(req.getContextPath() + "/login");
+        } else {
+            req.setAttribute("errorMassage", "Login or password is incorrect");
+            req.getServletContext().getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
+        }
     }
 }
