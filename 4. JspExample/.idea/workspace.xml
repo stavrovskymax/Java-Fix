@@ -7,19 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e66967c1-9dbe-4c90-811e-02bfbb32589e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/java/ru/homework/fake/FakeStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/java/ru/homework/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/java/ru/homework/repositories/IUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/java/ru/homework/repositories/UserRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/java/ru/homework/servlets/SignUpServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/webapp/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/webapp/jsp/signUp.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/java/ru/ivmiit/db/dao/CrudDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/java/ru/ivmiit/db/dao/UsersDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/java/ru/ivmiit/db/dao/UsersDaoJdbcImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/java/ru/ivmiit/db/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/java/ru/ivmiit/db/servlets/UsersServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/resources/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/webapp/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5. DataBase Example/src/main/webapp/jsp/addUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../5. DataBase Example/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../5. DataBase Example/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/.idea/dataSources/bb919f4b-c453-41b2-8999-14ce98c3f42c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/.idea/dataSources/bb919f4b-c453-41b2-8999-14ce98c3f42c/storage_v2/_src_/database/fix_users.XllOIw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/.idea/dataSources/bb919f4b-c453-41b2-8999-14ce98c3f42c/storage_v2/_src_/database/fix_users.XllOIw/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../5. DataBase Example/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/5. DataBase Example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../5. DataBase Example/5. DataBase Example.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../5. DataBase Example/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5. DataBase Example/src/main/java/ru/ivmiit/db/Program.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Homework/3. Servlet/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Homework/3. Servlet/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Homework/3. Servlet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Homework/3. Servlet/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/java/ru/homework/servlets/ProductsServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/webapp/WEB_INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Homework/3. Servlet/src/main/webapp/WEB_INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Homework/3. Servlet/target/servlet-1.0/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Homework/3. Servlet/target/servlet-1.0/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Homework/3. Servlet/target/servlet-1.0/WEB_INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Homework/3. Servlet/target/servlet-1.0/WEB_INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,8 +40,10 @@
     <session id="-1128606589">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.13" value="2" />
+          <entry key="project.open.time.132" value="1" />
           <entry key="project.open.time.202" value="1" />
           <entry key="project.open.time.206" value="1" />
           <entry key="project.open.time.224" value="1" />
@@ -50,12 +59,12 @@
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.92" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2465" />
+          <entry key="java" value="2471" />
           <entry key="jsp" value="954" />
           <entry key="txt" value="574" />
           <entry key="xml" value="23" />
@@ -63,7 +72,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2465" />
+          <entry key="JAVA" value="2471" />
           <entry key="JSP" value="954" />
           <entry key="PLAIN_TEXT" value="574" />
           <entry key="XML" value="23" />
@@ -74,19 +83,19 @@
           <entry key="UsersRepository" value="1" />
           <entry key="class" value="1" />
           <entry key="css" value="1" />
-          <entry key="java" value="35" />
-          <entry key="jsp" value="7" />
-          <entry key="xml" value="4" />
+          <entry key="java" value="43" />
+          <entry key="jsp" value="12" />
+          <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="35" />
-          <entry key="JSP" value="7" />
+          <entry key="JAVA" value="43" />
+          <entry key="JSP" value="12" />
           <entry key="UML" value="1" />
-          <entry key="XML" value="4" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
     </session>
@@ -126,14 +135,61 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/filters/AuthFilter.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/home.jsp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/signUp.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/signUp_old.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/servlets/SignUpServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/repositories/IUsersRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/fake/FakeStorage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -160,7 +216,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/fix.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/ivmiit/servlets/SignUpServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/ivmiit/servlets/HomeServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/signUp.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/home.jsp" />
@@ -172,6 +227,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/ivmiit/servlets/LoginServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/jsp/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ru/ivmiit/filters/AuthFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/ivmiit/servlets/SignUpServlet.java" />
       </list>
     </option>
   </component>
@@ -205,8 +261,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -245,6 +299,15 @@
               <item name="4. JspExample" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ivmiit" type="462c0819:PsiDirectoryNode" />
+              <item name="fake" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="4. JspExample" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4. JspExample" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -259,6 +322,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,6 +459,9 @@
       <workItem from="1542449961943" duration="8681000" />
       <workItem from="1542548449934" duration="32000" />
       <workItem from="1542552906167" duration="67000" />
+      <workItem from="1548494231181" duration="1762000" />
+      <workItem from="1548851929833" duration="1465000" />
+      <workItem from="1549628342033" duration="2550000" />
     </task>
     <task id="LOCAL-00001" summary="created">
       <created>1541516624697</created>
@@ -595,13 +663,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52100000" />
+    <option name="totallyTimeSpent" value="57877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14674735" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.14220877" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -633,6 +701,39 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14220877" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Application Servers" order="11" weight="0.3289689" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3289689" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -703,28 +804,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/signUp_old.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/fix.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -749,27 +833,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/home.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/servlets/SignUpServlet.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/FilterChain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
+        <state relative-caret-position="90">
+          <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/repositories/IUsersRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/filters/AuthFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        <state relative-caret-position="459">
+          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -780,31 +854,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/signUp.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/models/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/fake/FakeStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        <state relative-caret-position="85">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/repositories/UsersRepositoryInMemoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="238">
           <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/FilterChain.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="67" column="5" lean-forward="true" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -835,13 +902,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/filters/AuthFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/home.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/repositories/IUsersRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/fake/FakeStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/signUp_old.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/jsp/signUp.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/ivmiit/servlets/SignUpServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
         </state>
       </provider>
     </entry>
