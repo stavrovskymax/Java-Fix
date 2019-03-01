@@ -109,6 +109,7 @@ public class UsersDaoImpl implements UsersDao {
                 String lastName = resultSet.getString("lastName");
                 Integer car_id = resultSet.getInt("car_id");
                 String model = resultSet.getString("model");
+
                 User user = new User(id, firstName, lastName, new ArrayList<Car>());
                 Car car = new Car(car_id, user, model);
                 user.getCars().add(car);
