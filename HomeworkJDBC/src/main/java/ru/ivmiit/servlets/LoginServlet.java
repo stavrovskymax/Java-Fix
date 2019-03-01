@@ -53,12 +53,12 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if(usersDao.exist(login, password)) {
+        if (usersDao.exist(login, password)) {
             HttpSession session = req.getSession();
             session.setAttribute("login", login);
             resp.sendRedirect(req.getContextPath() + "/products");
         } else {
-            req.setAttribute("errorMassage", "Login or password is incorrect");
+            req.setAttribute("errorLoginOrPasswordIncorrect", "Login or password is incorrect");
             req.getServletContext().getRequestDispatcher("/jsp/login.jsp").forward(req, resp);
         }
     }
