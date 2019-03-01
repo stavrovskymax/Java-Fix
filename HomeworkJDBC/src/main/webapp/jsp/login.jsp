@@ -17,7 +17,7 @@
         <label for="password">Password
             <input class="input-field" type="password" id="password" name="password">
         </label>
-        <p><font color="red"><c:out value="${requestScope.errorMassage}"></c:out></font></p>
+        <p><font color="red"><c:out value="${requestScope.errorLoginOrPasswordIncorrect}"></c:out></font></p>
         <input type="submit" value="Sign in">
     </form>
 </div>
