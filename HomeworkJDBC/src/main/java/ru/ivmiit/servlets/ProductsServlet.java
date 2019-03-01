@@ -62,10 +62,14 @@ public class ProductsServlet extends HttpServlet {
         String model = req.getParameter("model");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        User user = new User(firstName, lastName, new ArrayList<Car>(), login, password);
-        Car car = new Car(user, model);
-        user.getCars().add(car);
-        usersDao.save(user);
+        if (!usersDao.exist(login, password)) {
+            User user = new User(firstName, lastName, new ArrayList<Car>(), login, password);
+            Car car = new Car(user, model);
+            user.getCars().add(car);
+            usersDao.save(user);
+        } else {
+            req.setAttribute("errorLoginExists", "Login already exists");
+        }
         doGet(req, resp);
     }
 
