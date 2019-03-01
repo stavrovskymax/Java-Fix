@@ -17,7 +17,7 @@
         <label for="lastName">Last name
             <input class="input-field" type="text" id="lastName" name="lastName">
         </label>
-        <label for ="model">Model car
+        <label for="model">Model car
             <input class="input-field" type="text" id="model" name="model">
         </label>
         <label for="login">Login
@@ -28,6 +28,7 @@
         </label>
         <input type="submit" value="Add user">
     </form>
+    <p><font color="red"><c:out value="${requestScope.errorLoginExists}"></c:out></font></p>
 </div>
 <div class="form-style-2">
     <div class="form-style-2-heading">
