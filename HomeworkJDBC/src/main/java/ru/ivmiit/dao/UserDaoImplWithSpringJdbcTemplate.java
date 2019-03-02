@@ -15,6 +15,10 @@ public class UserDaoImplWithSpringJdbcTemplate implements UsersDao {
 
     private JdbcTemplate template;
 
+    //language=SQL
+    private final String SQL_SELECT_ALL_USER_WITH_CAR = "SELECT hw_user.*, hw_car.id as car_id, hw_car.model " +
+            "FROM hw_user LEFT JOIN hw_car ON hw_user.id = hw_car.owner_id";
+
     public UserDaoImplWithSpringJdbcTemplate(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
@@ -68,6 +72,6 @@ public class UserDaoImplWithSpringJdbcTemplate implements UsersDao {
     }
 
     public List<User> findAll() {
-        return null;
+        return template.query(SQL_SELECT_ALL_USER_WITH_CAR, userRowMapper);
     }
 }
