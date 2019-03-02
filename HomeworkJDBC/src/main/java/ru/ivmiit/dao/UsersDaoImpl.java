@@ -1,6 +1,7 @@
 package ru.ivmiit.dao;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import ru.ivmiit.models.Car;
 import ru.ivmiit.models.User;
 
@@ -28,8 +29,12 @@ public class UsersDaoImpl implements UsersDao {
     //language=SQL
     private final String SQL_SELECT_USER_PASSWORD_BY_LOGIN = "SELECT password FROM hw_user WHERE login = ?";
 
-    public UsersDaoImpl(Connection connection) {
-        this.connection = connection;
+    public UsersDaoImpl(DriverManagerDataSource dataSource) {
+        try {
+            this.connection = dataSource.getConnection();
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     public List<User> findAllByFirstName(String fistName) {
