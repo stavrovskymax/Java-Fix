@@ -112,11 +112,11 @@ public class UsersDaoImpl implements UsersDao {
                 Integer id = resultSet.getInt("id");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
-                Integer car_id = resultSet.getInt("car_id");
+                Integer carId = resultSet.getInt("car_id");
                 String model = resultSet.getString("model");
 
                 User user = new User(id, firstName, lastName, new ArrayList<Car>());
-                Car car = new Car(car_id, user, model);
+                Car car = new Car(carId, user, model);
                 user.getCars().add(car);
                 users.add(user);
             }
