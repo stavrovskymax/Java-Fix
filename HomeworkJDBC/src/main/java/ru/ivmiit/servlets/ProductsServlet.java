@@ -46,7 +46,12 @@ public class ProductsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<User> users = usersDao.findAll();
+        List<User> users = null;
+        if (req.getParameter("firstName") == null) {
+            users = usersDao.findAll();
+        } else {
+            users = usersDao.findAllByFirstName(req.getParameter("firstName"));
+        }
         req.setAttribute("usersFromServer", users);
         req.getServletContext().getRequestDispatcher("/jsp/products.jsp").forward(req, resp);
     }
@@ -66,6 +71,6 @@ public class ProductsServlet extends HttpServlet {
         } else {
             req.setAttribute("errorLoginExists", "Login already exists");
         }
-        doGet(req, resp);
+        resp.sendRedirect(req.getContextPath() + "products");
     }
 }
