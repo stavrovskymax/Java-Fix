@@ -35,34 +35,30 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
     //language=SQL
     private final String SQL_SELECT_USER_PASSWORD_BY_LOGIN = "SELECT password FROM hw_user WHERE login = ?";
 
+    //language=SQL
+    private final String SQL_SELECT_USER_BY_FIRST_NAME = "SELECT hw_user.*, hw_car.id AS car_id, hw_car.model " +
+            "FROM hw_user LEFT JOIN hw_car ON hw_user.id = hw_car.owner_id WHERE firstname = ?";
+
     public UsersDaoImplWithSpringJdbcTemplate(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
 
-    private Map<Integer, User> userMap = new HashMap<>();
-
     private RowMapper<User> userRowMapper = (rs, rowNum) -> {
         Integer id = rs.getInt("id");
+        String firstName = rs.getString("firstName");
+        String lastName = rs.getString("lastName");
+        Integer carId = rs.getInt("car_id");
+        String model = rs.getString("model");
 
-        if (!userMap.containsKey(id)) {
-            String firstName = rs.getString("firstName");
-            String lastName = rs.getString("lastName");
+        User user = new User(id, firstName, lastName, new ArrayList<Car>());
+        Car car = new Car(carId, user, model);
+        user.getCars().add(car);
 
-            User user = new User(firstName, lastName, new ArrayList<Car>());
-            userMap.put(id, user);
-
-            Integer carId = rs.getInt("car_id");
-            String model = rs.getString("model");
-
-            Car car = new Car(carId, userMap.get(id), model);
-            userMap.get(id).getCars().add(car);
-        }
-
-        return userMap.get(id);
+        return user;
     };
 
-    public List<User> findAllByFirstName(String fistName) {
-        return null;
+    public List<User> findAllByFirstName(String firstName) {
+        return template.query(SQL_SELECT_USER_BY_FIRST_NAME, userRowMapper, firstName);
     }
 
     public boolean exist(String login, String password) {
