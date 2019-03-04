@@ -32,6 +32,9 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
     //language=SQL
     private final String SQL_INSERT_CAR = "INSERT INTO hw_car(owner_id, model) VALUES (?, ?)";
 
+    //language=SQL
+    private final String SQL_SELECT_USER_PASSWORD_BY_LOGIN = "SELECT password FROM hw_user WHERE login = ?";
+
     public UsersDaoImplWithSpringJdbcTemplate(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
@@ -63,6 +66,12 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
     }
 
     public boolean exist(String login, String password) {
+        List<String> userPasswords = template.query(SQL_SELECT_USER_PASSWORD_BY_LOGIN, (rs, rowNum) ->
+                rs.getString("password"), login);
+        if (!userPasswords.isEmpty()) {
+            String userPassword = userPasswords.get(0);
+            return BCrypt.checkpw(password, userPassword);
+        }
         return false;
     }
 
