@@ -37,7 +37,7 @@ public class UsersDaoImpl implements UsersDao {
         }
     }
 
-    public List<User> findAllByFirstName(String fistName) {
+    public List<User> findAllByFirstName(String firstName) {
         return null;
     }
 
