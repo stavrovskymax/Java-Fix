@@ -39,6 +39,15 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
     private final String SQL_SELECT_USER_BY_FIRST_NAME = "SELECT hw_user.*, hw_car.id AS car_id, hw_car.model " +
             "FROM hw_user LEFT JOIN hw_car ON hw_user.id = hw_car.owner_id WHERE firstname = ?";
 
+    //language=SQL
+    private final String SQL_UPDATE_USER = "UPDATE hw_user SET firstname = ?, lastname = ? WHERE login = ?";
+
+    //language=SQL
+    private final String SQL_DELETE_CAR = "DELETE FROM hw_car WHERE owner_id = (SELECT id FROM hw_user WHERE login = ?);";
+
+    //language=SQL
+    private final String SQL_DELETE_USER = "DELETE FROM hw_user WHERE login = ?";
+
     public UsersDaoImplWithSpringJdbcTemplate(DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
@@ -71,10 +80,6 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
         return false;
     }
 
-    public User find(int id) {
-        return null;
-    }
-
     public void save(User user) {
         String firstName = user.getFirstName();
         String lastName = user.getLastName();
@@ -92,12 +97,17 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
         template.update(SQL_INSERT_CAR, carId, model);
     }
 
-    public void update(User model) {
-
+    public void update(User user) {
+        String firstName = user.getFirstName();
+        String lastName = user.getLastName();
+        String login = user.getLogin();
+        template.update(SQL_UPDATE_USER, firstName, lastName, login);
     }
 
-    public void delete(User model) {
-
+    public void delete(User user) {
+        String login = user.getLogin();
+        template.update(SQL_DELETE_CAR, login);
+        template.update(SQL_DELETE_USER, login);
     }
 
     public List<User> findAll() {
