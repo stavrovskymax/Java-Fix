@@ -58,10 +58,6 @@ public class UsersDaoImpl implements UsersDao {
         }
     }
 
-    public User find(int id) {
-        return null;
-    }
-
     public void save(User user) {
         try {
             String firstName = user.getFirstName();
