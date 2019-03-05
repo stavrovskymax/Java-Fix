@@ -13,7 +13,7 @@ public class Application {
         Configuration configuration = new Configuration();
         configuration.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/postgres");
         configuration.setProperty("hibernate.connection.username", "postgres");
-        configuration.setProperty("hibernate.connection.password", "314159");
+        configuration.setProperty("hibernate.connection.password", "qwerty");
         configuration.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL95Dialect");
         configuration.setProperty("hibernate.hbm2ddl.auto", "update");
@@ -25,7 +25,8 @@ public class Application {
 
         Session session = sessionFactory.openSession();
         User user = session.createQuery("from User user where user.id = 1", User.class).getSingleResult();
-        session.beginTransaction();
+        
+	session.beginTransaction();
         session.save(new User("Andrey", "Ivanov", 50));
         session.getTransaction().commit();
         System.out.print(user);
