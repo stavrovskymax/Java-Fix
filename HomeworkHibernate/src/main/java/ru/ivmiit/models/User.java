@@ -13,7 +13,7 @@ public class User {
     private String lastName;
     private String login;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Car> cars;
 
     public User() {
@@ -73,6 +73,6 @@ public class User {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName + " " + login;
+        return firstName + " " + lastName;
     }
 }
