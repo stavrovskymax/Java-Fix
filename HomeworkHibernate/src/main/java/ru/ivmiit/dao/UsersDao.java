@@ -1,5 +1,7 @@
 package ru.ivmiit.dao;
 
-public interface UsersDao extends CrudDao {
+import ru.ivmiit.models.User;
+
+public interface UsersDao extends CrudDao<User> {
     boolean exist(String login, String password);
 }
