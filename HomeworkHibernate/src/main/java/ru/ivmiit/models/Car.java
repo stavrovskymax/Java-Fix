@@ -8,7 +8,7 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private User userId;
     private String model;
@@ -38,10 +38,5 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    @Override
-    public String toString() {
-        return model;
     }
 }
