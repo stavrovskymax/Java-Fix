@@ -1,9 +1,9 @@
 package ru.ivmiit.dao;
 
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import ru.ivmiit.models.Car;
 import ru.ivmiit.models.User;
+import ru.ivmiit.utils.JdbcDataSourceUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,6 +15,10 @@ public class UsersDaoImpl implements UsersDao {
     //language=SQL
     private final String SQL_SELECT_ALL_USER_WITH_CAR = "SELECT hw_user.*, hw_car.id as car_id, hw_car.model " +
             "FROM hw_user LEFT JOIN hw_car ON hw_user.id = hw_car.owner_id";
+
+    //language=SQL
+    private final String SQL_SELECT_USER_WITH_CAR_BY_FIRST_NAME = "SELECT hw_user.*, hw_car.id as car_id, hw_car.model " +
+            "FROM hw_user LEFT JOIN hw_car ON hw_user.id = hw_car.owner_id WHERE hw_user.firstname = ?";
 
     //language=SQL
     private final String SQL_INSERT_USER = "INSERT INTO hw_user (firstname, lastname, login, password) " +
@@ -29,16 +33,54 @@ public class UsersDaoImpl implements UsersDao {
     //language=SQL
     private final String SQL_SELECT_USER_PASSWORD_BY_LOGIN = "SELECT password FROM hw_user WHERE login = ?";
 
-    public UsersDaoImpl(DriverManagerDataSource dataSource) {
+    //language=SQL
+    private final String SQL_DELETE_CAR_BY_LOGIN = "DELETE FROM hw_car WHERE owner_id = (SELECT id FROM hw_user WHERE login = ?);";
+
+    //language=SQL
+    private final String SQL_DELETE_USER_BY_LOGIN = "DELETE FROM hw_user WHERE login = ?";
+
+    //language=SQL
+    private final String SQL_UPDATE_FIRST_NAME_BY_LOGIN = "UPDATE hw_user SET firstName = ? WHERE login = ?";
+
+    public UsersDaoImpl() {
+        JdbcDataSourceUtil data = JdbcDataSourceUtil.getData();
         try {
-            this.connection = dataSource.getConnection();
+            String dbUrl = data.getProperty("db.url");
+            String dbUsername = data.getProperty("db.username");
+            String dbPassword = data.getProperty("db.password");
+            String driverClassName = data.getProperty("db.driverClassName");
+
+            Class.forName(driverClassName);
+            this.connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
         } catch (SQLException e) {
             throw new IllegalStateException(e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
-    public List<User> findAllByFirstName(String firstName) {
-        return null;
+    public List<User> findAllByFirstName(String userFirstName) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(SQL_SELECT_USER_WITH_CAR_BY_FIRST_NAME);
+            statement.setString(1, userFirstName);
+            ResultSet resultSet = statement.executeQuery();
+            ArrayList<User> users = new ArrayList<>();
+            User user;
+            while (resultSet.next()) {
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                String login = resultSet.getString("login");
+                String password = resultSet.getString("password");
+                user = new User(firstName, lastName, new ArrayList<Car>(), login, password);
+                String model = resultSet.getString("model");
+                Car car = new Car(user, model);
+                user.getCars().add(car);
+                users.add(user);
+            }
+            return users;
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     public boolean exist(String login, String password) {
@@ -91,12 +133,31 @@ public class UsersDaoImpl implements UsersDao {
         }
     }
 
-    public void update(User model) {
-
+    public void update(User user) {
+        try {
+            String firstName = user.getFirstName();
+            String login = user.getLogin();
+            PreparedStatement statement = connection.prepareStatement(SQL_UPDATE_FIRST_NAME_BY_LOGIN);
+            statement.setString(1, firstName);
+            statement.setString(2, login);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
-    public void delete(User model) {
-
+    public void delete(User user) {
+        try {
+            String login = user.getLogin();
+            PreparedStatement statement = connection.prepareStatement(SQL_DELETE_CAR_BY_LOGIN);
+            statement.setString(1, login);
+            statement.execute();
+            statement = connection.prepareStatement(SQL_DELETE_USER_BY_LOGIN);
+            statement.setString(1, login);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     public List<User> findAll() {
@@ -108,10 +169,12 @@ public class UsersDaoImpl implements UsersDao {
                 Integer id = resultSet.getInt("id");
                 String firstName = resultSet.getString("firstName");
                 String lastName = resultSet.getString("lastName");
+                String login = resultSet.getString("login");
+                String password = resultSet.getString("password");
                 Integer carId = resultSet.getInt("car_id");
                 String model = resultSet.getString("model");
 
-                User user = new User(id, firstName, lastName, new ArrayList<Car>());
+                User user = new User(id, firstName, lastName, new ArrayList<Car>(), login, password);
                 Car car = new Car(carId, user, model);
                 user.getCars().add(car);
                 users.add(user);
