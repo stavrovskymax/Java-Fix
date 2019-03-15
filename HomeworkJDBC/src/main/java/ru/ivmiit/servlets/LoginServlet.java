@@ -1,9 +1,7 @@
 package ru.ivmiit.servlets;
 
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import ru.ivmiit.dao.UsersDao;
 import ru.ivmiit.dao.UsersDaoImpl;
-import ru.ivmiit.dao.UsersDaoImplWithSpringJdbcTemplate;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,37 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Properties;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+    private Connection connection;
     private UsersDao usersDao;
 
     @Override
     public void init() throws ServletException {
-        Properties properties = new Properties();
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        try {
-            properties.load(new FileInputStream(getServletContext().getRealPath("/WEB-INF/classes/db.properties")));
-            String dbUrl = properties.getProperty("db.url");
-            String dbUsername = properties.getProperty("db.username");
-            String dbPassword = properties.getProperty("db.password");
-            String driverClassName = properties.getProperty("db.driverClassName");
-
-            dataSource.setUrl(dbUrl);
-            dataSource.setUsername(dbUsername);
-            dataSource.setPassword(dbPassword);
-            dataSource.setDriverClassName(driverClassName);
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
-        }
-
-        this.usersDao = new UsersDaoImplWithSpringJdbcTemplate(dataSource);
+        usersDao = new UsersDaoImpl();
     }
 
     @Override
