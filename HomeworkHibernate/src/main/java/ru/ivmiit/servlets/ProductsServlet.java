@@ -1,6 +1,5 @@
 package ru.ivmiit.servlets;
 
-import org.mindrot.jbcrypt.BCrypt;
 import ru.ivmiit.dao.UsersDao;
 import ru.ivmiit.dao.UsersDaoImpl;
 import ru.ivmiit.models.Car;
@@ -39,8 +38,7 @@ public class ProductsServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (!usersDao.exist(login, password)) {
-            String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt(10));
-            User user = new User(firstName, lastName, login, passwordHash, new ArrayList<Car>());
+            User user = new User(firstName, lastName, login, password, new ArrayList<Car>());
             Car car = new Car(user, model);
             user.getCars().add(car);
             usersDao.save(user);
