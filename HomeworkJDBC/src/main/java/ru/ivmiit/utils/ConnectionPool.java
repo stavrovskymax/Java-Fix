@@ -4,11 +4,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class JdbcDataSourceUtil {
+public class ConnectionPool {
     private final Properties properties = new Properties();
-    private static final JdbcDataSourceUtil data = new JdbcDataSourceUtil();
+    private static final ConnectionPool connectionPool = new ConnectionPool();
 
-    private JdbcDataSourceUtil() {
+    private ConnectionPool() {
         try {
             properties.load(new FileInputStream(this.getClass().getClassLoader().getResource("db.properties").getFile()));
         } catch (IOException e) {
@@ -16,8 +16,8 @@ public class JdbcDataSourceUtil {
         }
     }
 
-    public static JdbcDataSourceUtil getData() {
-        return data;
+    public static ConnectionPool getConnectionPool() {
+        return connectionPool;
     }
 
     public String getProperty(String value) {
