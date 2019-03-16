@@ -3,7 +3,7 @@ package ru.ivmiit.dao;
 import org.mindrot.jbcrypt.BCrypt;
 import ru.ivmiit.models.Car;
 import ru.ivmiit.models.User;
-import ru.ivmiit.utils.JdbcDataSourceUtil;
+import ru.ivmiit.utils.ConnectionPool;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class UsersDaoImpl implements UsersDao {
     private final String SQL_UPDATE_FIRST_NAME_BY_LOGIN = "UPDATE hw_user SET firstName = ? WHERE login = ?";
 
     public UsersDaoImpl() {
-        JdbcDataSourceUtil data = JdbcDataSourceUtil.getData();
+        ConnectionPool data = ConnectionPool.getConnectionPool();
         try {
             String dbUrl = data.getProperty("db.url");
             String dbUsername = data.getProperty("db.username");
