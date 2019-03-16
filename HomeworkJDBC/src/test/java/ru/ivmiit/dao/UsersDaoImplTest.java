@@ -19,8 +19,8 @@ public class UsersDaoImplTest {
 
         String expexted = firstName;
 
-        for (int i = 0; i < users.size(); i++) {
-            String actual = users.get(i).getFirstName();
+        for (User user : users) {
+            String actual = user.getFirstName();
             Assert.assertEquals(expexted, actual);
         }
     }
