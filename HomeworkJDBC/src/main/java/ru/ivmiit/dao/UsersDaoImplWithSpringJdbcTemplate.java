@@ -5,14 +5,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import ru.ivmiit.models.Car;
 import ru.ivmiit.models.User;
+import ru.ivmiit.utils.ConnectionPoolWithDataSource;
 
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
 
@@ -40,7 +37,7 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
             "FROM hw_user LEFT JOIN hw_car ON hw_user.id = hw_car.owner_id WHERE firstname = ?";
 
     //language=SQL
-    private final String SQL_UPDATE_USER = "UPDATE hw_user SET firstname = ?, lastname = ? WHERE login = ?";
+    private final String SQL_UPDATE_FIRST_NAME_BY_LOGIN = "UPDATE hw_user SET firstname = ? WHERE login = ?";
 
     //language=SQL
     private final String SQL_DELETE_CAR = "DELETE FROM hw_car WHERE owner_id = (SELECT id FROM hw_user WHERE login = ?);";
@@ -49,17 +46,20 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
     private final String SQL_DELETE_USER = "DELETE FROM hw_user WHERE login = ?";
 
     public UsersDaoImplWithSpringJdbcTemplate(DataSource dataSource) {
-        this.template = new JdbcTemplate(dataSource);
+        this.template = new JdbcTemplate(ConnectionPoolWithDataSource.getConnectionPool().getDataSource());
     }
 
     private RowMapper<User> userRowMapper = (rs, rowNum) -> {
         Integer id = rs.getInt("id");
         String firstName = rs.getString("firstName");
         String lastName = rs.getString("lastName");
+        String login = rs.getString("login");
+        String password = rs.getString("password");
+
         Integer carId = rs.getInt("car_id");
         String model = rs.getString("model");
 
-        User user = new User(id, firstName, lastName, new ArrayList<Car>());
+        User user = new User(id, firstName, lastName, new ArrayList<Car>(), login, password);
         Car car = new Car(carId, user, model);
         user.getCars().add(car);
 
@@ -99,9 +99,8 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
 
     public void update(User user) {
         String firstName = user.getFirstName();
-        String lastName = user.getLastName();
         String login = user.getLogin();
-        template.update(SQL_UPDATE_USER, firstName, lastName, login);
+        template.update(SQL_UPDATE_FIRST_NAME_BY_LOGIN, firstName, login);
     }
 
     public void delete(User user) {
