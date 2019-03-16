@@ -16,6 +16,11 @@ public class Car {
     public Car() {
     }
 
+    public Car(User userId, String model) {
+        this.userId = userId;
+        this.model = model;
+    }
+
     public Car(String model) {
         this.model = model;
     }
