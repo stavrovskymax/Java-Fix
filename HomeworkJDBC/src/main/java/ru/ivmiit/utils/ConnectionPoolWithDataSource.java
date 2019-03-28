@@ -25,7 +25,7 @@ public class ConnectionPoolWithDataSource {
             dataSource.setPassword(dbPassword);
             dataSource.setDriverClassName(driverClassName);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IllegalStateException(e);
         }
     }
 
