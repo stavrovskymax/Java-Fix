@@ -10,10 +10,10 @@ import java.util.List;
 
 public class UsersDaoImplTest {
 
+    private UsersDao usersDao = new UsersDaoImpl();
+
     @Test
     public void findAllByFirstName() {
-        UsersDao usersDao = new UsersDaoImpl();
-
         String firstName = "Max";
         List<User> users = usersDao.findAllByFirstName(firstName);
 
@@ -27,8 +27,6 @@ public class UsersDaoImplTest {
 
     @Test
     public void exist() {
-        UsersDao usersDao = new UsersDaoImpl();
-
         String login = "stavrovsky";
         String password = "qwerty";
 
@@ -40,8 +38,6 @@ public class UsersDaoImplTest {
 
     @Test
     public void saveAndDelete() {
-        UsersDao usersDao = new UsersDaoImpl();
-
         String firstName = "Ivan";
         String lastName = "Ivanov";
         String model = "car";
@@ -67,8 +63,6 @@ public class UsersDaoImplTest {
 
     @Test
     public void update() {
-        UsersDao usersDao = new UsersDaoImpl();
-
         String firstName = "Vladimir";
         String lastName = "Petrov";
         String model = "AURUS";
@@ -98,8 +92,6 @@ public class UsersDaoImplTest {
 
     @Test
     public void findAll() {
-        UsersDao usersDao = new UsersDaoImpl();
-
         List<User> users = usersDao.findAll();
 
         String expectedLoginStavrovsky = "stavrovsky";
