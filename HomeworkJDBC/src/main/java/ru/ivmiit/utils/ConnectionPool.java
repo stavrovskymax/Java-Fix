@@ -12,7 +12,7 @@ public class ConnectionPool {
         try {
             properties.load(new FileInputStream(this.getClass().getClassLoader().getResource("db.properties").getFile()));
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IllegalStateException(e);
         }
     }
 
