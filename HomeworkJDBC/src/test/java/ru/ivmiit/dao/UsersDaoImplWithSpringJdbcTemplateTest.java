@@ -3,10 +3,8 @@ package ru.ivmiit.dao;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import ru.ivmiit.models.Car;
 import ru.ivmiit.models.User;
-import ru.ivmiit.utils.ConnectionPoolWithDataSource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +15,7 @@ public class UsersDaoImplWithSpringJdbcTemplateTest {
 
     @Before
     public void init() {
-        DriverManagerDataSource dataSource = ConnectionPoolWithDataSource.getConnectionPool().getDataSource();
-        usersDao = new UsersDaoImplWithSpringJdbcTemplate(dataSource);
+        usersDao = new UsersDaoImplWithSpringJdbcTemplate();
     }
 
     @Test
