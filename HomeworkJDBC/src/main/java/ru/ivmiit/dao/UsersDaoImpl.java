@@ -52,10 +52,8 @@ public class UsersDaoImpl implements UsersDao {
 
             Class.forName(driverClassName);
             this.connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new IllegalStateException(e);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
