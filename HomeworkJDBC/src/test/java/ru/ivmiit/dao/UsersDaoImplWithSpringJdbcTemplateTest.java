@@ -1,6 +1,7 @@
 package ru.ivmiit.dao;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import ru.ivmiit.models.Car;
@@ -12,12 +13,16 @@ import java.util.List;
 
 
 public class UsersDaoImplWithSpringJdbcTemplateTest {
-    private DriverManagerDataSource dataSource = ConnectionPoolWithDataSource.getConnectionPool().getDataSource();
+    private UsersDao usersDao;
+
+    @Before
+    public void init() {
+        DriverManagerDataSource dataSource = ConnectionPoolWithDataSource.getConnectionPool().getDataSource();
+        usersDao = new UsersDaoImplWithSpringJdbcTemplate(dataSource);
+    }
 
     @Test
     public void findAllByFirstName() {
-        UsersDao usersDao = new UsersDaoImplWithSpringJdbcTemplate(dataSource);
-
         String firstName = "Max";
         List<User> users = usersDao.findAllByFirstName(firstName);
 
@@ -31,8 +36,6 @@ public class UsersDaoImplWithSpringJdbcTemplateTest {
 
     @Test
     public void exist() {
-        UsersDao usersDao = new UsersDaoImplWithSpringJdbcTemplate(dataSource);
-
         String login = "stavrovsky";
         String password = "qwerty";
 
@@ -44,8 +47,6 @@ public class UsersDaoImplWithSpringJdbcTemplateTest {
 
     @Test
     public void saveAndDelete() {
-        UsersDao usersDao = new UsersDaoImplWithSpringJdbcTemplate(dataSource);
-
         String firstName = "Ivan";
         String lastName = "Ivanov";
         String model = "car";
@@ -71,8 +72,6 @@ public class UsersDaoImplWithSpringJdbcTemplateTest {
 
     @Test
     public void update() {
-        UsersDao usersDao = new UsersDaoImplWithSpringJdbcTemplate(dataSource);
-
         String firstName = "Vladimir";
         String lastName = "Petrov";
         String model = "AURUS";
@@ -102,8 +101,6 @@ public class UsersDaoImplWithSpringJdbcTemplateTest {
 
     @Test
     public void findAll() {
-        UsersDao usersDao = new UsersDaoImplWithSpringJdbcTemplate(dataSource);
-
         List<User> users = usersDao.findAll();
 
         String expectedLoginStavrovsky = "stavrovsky";
