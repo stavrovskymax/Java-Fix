@@ -7,7 +7,6 @@ import ru.ivmiit.models.Car;
 import ru.ivmiit.models.User;
 import ru.ivmiit.utils.ConnectionPoolWithDataSource;
 
-import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +44,7 @@ public class UsersDaoImplWithSpringJdbcTemplate implements UsersDao {
     //language=SQL
     private final String SQL_DELETE_USER = "DELETE FROM hw_user WHERE login = ?";
 
-    public UsersDaoImplWithSpringJdbcTemplate(DataSource dataSource) {
+    public UsersDaoImplWithSpringJdbcTemplate() {
         this.template = new JdbcTemplate(ConnectionPoolWithDataSource.getConnectionPool().getDataSource());
     }
 
