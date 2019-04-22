@@ -3,21 +3,7 @@
     <title>Users</title>
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
-
-<div class="form-style-2">
-    <div class="form-style-2-heading">
-        Please Sign Up!
-    </div>
-    <form method="post" action="/users">
-        <label for="firstName">First Name
-            <input class="input-field" type="text" id="firstName" name="firstName">
-        </label>
-        <label for="lastName">Last Name
-            <input class="input-field" type="text" id="lastName" name="lastName">
-        </label>
-        <input type="submit" value="Add user">
-    </form>
-</div>
+<body>
 
 <div class="form-style-2">
     <div class="form-style-2-heading">

@@ -22,9 +22,12 @@ public class User {
 
     private String firstName;
     private String lastName;
-
-    @OneToMany(mappedBy = "owner")
-    private List<Car> cars;
+    private String login;
+    private String hashPassword;
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
 
     public static User form(UserForm form) {
         return User.builder()
