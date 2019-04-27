@@ -1,10 +1,9 @@
-package ru.ivmiit.mvc.models;
+package ru.ivmiit.service.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.ivmiit.mvc.forms.UserForm;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,18 +19,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(mappedBy = "owner")
-    private List<Car> cars;
+    private String login;
+    private String hashPassword;
 
-    public static User form(UserForm form) {
-        return User.builder()
-                .firstName(form.getFirstName())
-                .lastName(form.getLastName())
-                .build();
-    }
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
+
+    @OneToMany(mappedBy = "user")
+    private List<Token> tokens;
 }
