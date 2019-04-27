@@ -25,6 +25,10 @@ public class User {
     private String lastName;
     private String login;
     private String password;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
     @OneToMany(mappedBy = "owner_id", cascade = CascadeType.ALL)
     private List<Car> cars;
