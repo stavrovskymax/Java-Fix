@@ -1,6 +1,5 @@
 package ru.homework.controllers;
 
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,21 +22,21 @@ public class UsersController {
     @Autowired
     private UsersRepository usersRepository;
 
-    @GetMapping("/products")
+    @GetMapping("/users")
     public String getProducts(ModelMap model) {
         List<User> users = usersRepository.findUsersWithCars();
         model.addAttribute("usersFromServer", users);
-        return "products";
+        return "users";
     }
 
-    @PostMapping("/products")
+    /*@PostMapping("/users")
     public String  addUser(UserForm userForm, ModelMap modelMap) {
-        String passwordHash = BCrypt.hashpw(userForm.getPassword(), BCrypt.gensalt(10));
+        String passwordHash = BCrypt.hashpw(userForm.getPasswordHash(), BCrypt.gensalt(10));
         User user = User.builder()
                 .firstName(userForm.getFirstName())
                 .lastName(userForm.getLastName())
                 .login(userForm.getLastName())
-                .password(passwordHash)
+                .passwordHash(passwordHash)
                 .cars(new ArrayList<Car>())
                 .state(State.ACTIVE)
                 .role(Role.USER)
@@ -56,10 +55,5 @@ public class UsersController {
         List<User> users = usersRepository.findUsersWithCars();
         modelMap.addAttribute("usersFromServer", users);
         return "products";
-    }
-
-    @GetMapping("/logout")
-    public String logout() {
-        return "logout";
-    }
+    }*/
 }
