@@ -24,12 +24,12 @@ public class User {
     @Column(name = "lastname")
     private String lastName;
     private String login;
-    private String password;
+    private String passwordHash;
     @Enumerated(value = EnumType.STRING)
     private State state;
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "owner_id", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Car> cars;
 }
