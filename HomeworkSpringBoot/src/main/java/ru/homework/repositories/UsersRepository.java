@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UsersRepository extends JpaRepository<User, Long> {
-    @Query("select new ru.homework.dto.UserCarDto(user.firstName, user.lastName, car.model) " +
+    @Query("select new ru.homework.transfer.UserDto(user.firstName, user.lastName, car.model) " +
             "from User user left join user.cars as car")
     List<User> findUsersWithCars();
 
