@@ -6,7 +6,7 @@
 
 <div class="form-style-2">
     <div class="form-style-2-heading">
-        Already in System!
+        All registered users!
     </div>
     <table>
         <tr>
