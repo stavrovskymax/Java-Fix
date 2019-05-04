@@ -18,7 +18,7 @@ public class ProfileController {
     @Autowired
     private CarsRepository carsRepository;
 
-    @GetMapping("/")
+    @GetMapping("/profile")
     public String getProfilePage(Authentication authentication, ModelMap model) {
         if (authentication == null) {
             return "redirect:/login";
