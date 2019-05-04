@@ -24,6 +24,10 @@
         <label for="password">Password
             <input class="input-field" type="password" id="password" name="password">
         </label>
+        <#if errorLoginExists??>
+        <div style="color: red">Login already exists</div>
+        </#if>
+        <br>
         <input type="submit" value="Add user">
     </form>
 </div>
