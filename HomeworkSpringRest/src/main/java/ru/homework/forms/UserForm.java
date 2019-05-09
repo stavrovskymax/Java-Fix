@@ -1,12 +1,12 @@
-package ru.homework.dto;
+package ru.homework.forms;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
-public class UserCarDto {
+public class UserForm {
     private String firstName;
     private String lastName;
+    private String login;
+    private String password;
     private String model;
 }
